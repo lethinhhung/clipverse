@@ -1,3 +1,4 @@
+
 "use client";
 
 import {
@@ -7,13 +8,19 @@ import {
 } from "@/components/ui/sidebar";
 import AppSidebar from "@/components/app-sidebar";
 import { Separator } from "@/components/ui/separator";
+=======
+import Header from "@/components/header";
+
 
 export default function DefaultLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
-}>) {
+}>) 
+
+{
   return (
+
     <SidebarProvider>
       <AppSidebar />
       <SidebarInset>
@@ -24,5 +31,13 @@ export default function DefaultLayout({
         {children}
       </SidebarInset>
     </SidebarProvider>
+
+    <div className="flex flex-col bg-background">
+      {/* header */}
+      <Header />
+
+      {children}
+    </div>
+
   );
 }
