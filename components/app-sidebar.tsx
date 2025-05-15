@@ -5,13 +5,9 @@ import {
   SidebarFooter,
   SidebarHeader,
   SidebarRail,
+  SidebarTrigger,
 } from "./ui/sidebar";
-import {
-  PanelRightOpen,
-  LayoutDashboard,
-  Flame,
-  Heart,
-} from "lucide-react";
+import { PanelRightOpen, LayoutDashboard, Flame, Heart } from "lucide-react";
 import { NavMain } from "./nav-main";
 import { ChannelList } from "./channel-list";
 import { NavUser } from "./nav-user";
@@ -83,10 +79,13 @@ const dummyData = {
   ],
 };
 
-export default function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
+export default function AppSidebar({
+  ...props
+}: React.ComponentProps<typeof Sidebar>) {
   return (
     <Sidebar collapsible="icon" {...props}>
       <SidebarHeader>
+        <SidebarTrigger className="-ml-1" />
         {/* <h3>Youtube Clone</h3> */}
       </SidebarHeader>
       <SidebarContent>

@@ -12,12 +12,14 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { LogOut } from "lucide-react";
+import { SidebarTrigger } from "./ui/sidebar";
 
 export default function Header() {
   const loggined = false;
 
   return (
     <div className="flex flex-row justify-between items-center bg-background text-foreground h-20 px-10 py-5 w-full">
+      <SidebarTrigger className="flex md:hidden" />
       <Image
         className="dark:invert w-10 h-10 object-contain"
         src="/imgs/logo-default.svg"
