@@ -6,9 +6,13 @@ import {
   SidebarHeader,
   SidebarRail,
   SidebarTrigger,
+  SidebarGroup,
+  SidebarGroupLabel,
+  SidebarMenu,
+  SidebarMenuButton,
+  SidebarMenuItem,
 } from "./ui/sidebar";
-import { PanelRightOpen, LayoutDashboard, Flame, Heart } from "lucide-react";
-import { NavMain } from "./nav-main";
+import { LayoutDashboard, Flame, Heart } from "lucide-react";
 import { ChannelList } from "./channel-list";
 import { NavUser } from "./nav-user";
 import Line from "./line";
@@ -86,12 +90,40 @@ export default function AppSidebar({
     <Sidebar collapsible="icon" {...props}>
       <SidebarHeader>
         <SidebarTrigger className="-ml-1" />
-        {/* <h3>Youtube Clone</h3> */}
       </SidebarHeader>
       <SidebarContent>
-        <NavMain navMain={dummyData.navMain} />
+        <SidebarGroup>
+          <SidebarGroupLabel>Explore</SidebarGroupLabel>
+          <SidebarMenu>
+            {dummyData.navMain.map((item) => (
+              <SidebarMenuItem key={item.name}>
+                <SidebarMenuButton asChild>
+                  <a href={item.url} className="flex items-center gap-4">
+                    <item.icon/>
+                    <span>{item.name}</span>
+                  </a>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+            ))}
+          </SidebarMenu>
+        </SidebarGroup>
         <Line length="80%" />
         <ChannelList channels={dummyData.channels} />
+        <Line length="80%" />
+        <SidebarGroup>
+          <SidebarGroupLabel>Services</SidebarGroupLabel>
+          <SidebarMenu>
+            {dummyData.services.map((item) => (
+              <SidebarMenuItem key={item.name}>
+                <SidebarMenuButton asChild>
+                  <a href={item.url} className="flex items-center gap-4">
+                    <span>{item.name}</span>
+                  </a>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+            ))}
+          </SidebarMenu>
+        </SidebarGroup>
       </SidebarContent>
       <SidebarFooter>
         <NavUser user={dummyData.user} />
