@@ -13,26 +13,19 @@ import {
   AvatarImage,
 } from "@/components/ui/avatar";
 import React from "react";
+import { Profile } from "@/app/interfaces/user";
 
-export function ChannelList({
-  channels,
-}: {
-  channels: {
-    name: string
-    url: string
-    avatar: string
-  }[]
-}) {
+export function SidebarChannelList({ channels }: { channels: Profile[] }) {
   const { isMobile } = useSidebar();
 
   return (
     <SidebarGroup>
       <SidebarGroupLabel>Subcribed Channels</SidebarGroupLabel>
-      <SidebarMenu>
+      <SidebarMenu className="group-data-[collapsible=icon]:gap-3">
         {channels.map((item) => (
           <SidebarMenuItem key={item.name}>
             <SidebarMenuButton asChild size="lg" className="h-auto py-2">
-              <a href={item.url} className="flex items-center gap-4">
+              <a href={item._id} className="flex items-center gap-4">
                 <Avatar className="h-8 w-8 rounded-lg">
                   <AvatarImage src={item.avatar} alt={item.name}/>
                   <AvatarFallback className="rounded-lg">
@@ -45,9 +38,11 @@ export function ChannelList({
           </SidebarMenuItem>
         ))}
         <SidebarMenuItem>
-          <SidebarMenuButton className="text-sidebar-foreground/70">
-            <MoreHorizontal className="text-sidebar-foreground/70" />
-            <span>More</span>
+          <SidebarMenuButton className="text-sidebar-foreground/70" asChild>
+            <a href="/subcribed-channels" className="flex items-center">
+              <MoreHorizontal className="text-sidebar-foreground/70" />
+              <span>More</span>
+            </a>
           </SidebarMenuButton>
         </SidebarMenuItem>
       </SidebarMenu>

@@ -78,6 +78,26 @@
   --sidebar-ring: oklch(0.708 0 0);
 }
 
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: oklch(0.708 0 0);
+  border-radius: 9999px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: hsl(240, 5%, 50%);
+}
+
 .dark {
   --background: oklch(0.145 0 0);
   --foreground: oklch(0.98 0.0034 247.86);
@@ -119,4 +139,13 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+@layer utilities {
+  .custom-border {
+    @apply border-1 border-solid border-[#F8FAFC60];
+  }
+  .custom-separator {
+    @apply bg-[#F8FAFC60];
+  };
 }

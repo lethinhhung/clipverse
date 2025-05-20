@@ -13,9 +13,10 @@ import {
   SidebarMenuItem,
 } from "./ui/sidebar";
 import { LayoutDashboard, Flame, Heart } from "lucide-react";
-import { ChannelList } from "./channel-list";
+import { SidebarChannelList } from "./channel-list";
 import { NavUser } from "./nav-user";
-import Line from "./line";
+import { Separator } from "./ui/separator";
+import Image from "next/image";
 
 const dummyData = {
   user: {
@@ -42,30 +43,35 @@ const dummyData = {
   ],
   channels: [
     {
+      _id: "#",
       name: "Channel 1",
-      url: "#",
       avatar: "/imgs/dummy-avatars/mouse.png",
+      bio: "Channel 1 description",
     },
     {
+      _id: "#",
       name: "Channel 2",
-      url: "#",
       avatar: "/imgs/dummy-avatars/mouse.png",
+      bio: "Channel 2 description",
     },
     {
+      _id: "#",
       name: "Channel 3",
-      url: "#",
       avatar: "/imgs/dummy-avatars/mouse.png",
+      bio: "Channel 3 description",
     },
-    {
-      name: "Channel 4",
-      url: "#",
-      avatar: "/imgs/dummy-avatars/mouse.png",
-    },
-    {
-      name: "Channel 5",
-      url: "#",
-      avatar: "/imgs/dummy-avatars/mouse.png",
-    },
+    // {
+    //   _id: "#",
+    //   name: "Channel 4",
+    //   avatar: "/imgs/dummy-avatars/mouse.png",
+    //   bio: "Channel 4 description",
+    // },
+    // {
+    //   _id: "#",
+    //   name: "Channel 5",
+    //   avatar: "/imgs/dummy-avatars/mouse.png",
+    //   bio: "Channel 5 description",
+    // },
   ],
   services: [
     {
@@ -88,8 +94,16 @@ export default function AppSidebar({
 }: React.ComponentProps<typeof Sidebar>) {
   return (
     <Sidebar collapsible="icon" {...props}>
-      <SidebarHeader>
-        <SidebarTrigger className="-ml-1" />
+      <SidebarHeader className="flex flex-row items-center justify-between">
+        <Image
+          className="dark:invert group-data-[collapsible=icon]:hidden"
+          src="/imgs/logo-text.svg"
+          alt="Next.js logo"
+          width={120}
+          height={60}
+          priority
+        />
+        <SidebarTrigger className="p-4" />
       </SidebarHeader>
       <SidebarContent>
         <SidebarGroup>
@@ -99,7 +113,7 @@ export default function AppSidebar({
               <SidebarMenuItem key={item.name}>
                 <SidebarMenuButton asChild>
                   <a href={item.url} className="flex items-center gap-4">
-                    <item.icon/>
+                    <item.icon />
                     <span>{item.name}</span>
                   </a>
                 </SidebarMenuButton>
@@ -107,9 +121,9 @@ export default function AppSidebar({
             ))}
           </SidebarMenu>
         </SidebarGroup>
-        <Line length="80%" />
-        <ChannelList channels={dummyData.channels} />
-        <Line length="80%" />
+        <Separator className="!w-3/4 mx-auto custom-separator" />
+        <SidebarChannelList channels={dummyData.channels} />
+        <Separator className="!w-3/4 mx-auto custom-separator" />
         <SidebarGroup>
           <SidebarGroupLabel>Services</SidebarGroupLabel>
           <SidebarMenu>
