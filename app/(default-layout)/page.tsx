@@ -1,4 +1,5 @@
 import { DarkModeToggle } from "@/components/dark-mode-toggle";
+import VideoCard from "@/components/video-card";
 import Image from "next/image";
 
 export default function Home() {
@@ -14,6 +15,8 @@ export default function Home() {
             height={38}
             priority
           />
+
+          <VideoCard />
 
           <Image 
             className="dark:invert"
