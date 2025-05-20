@@ -1,4 +1,4 @@
-import { User } from "@/app/interfaces/user";
+import { User } from "@/interfaces/user";
 import ChannelCard from "@/components/channel-card";
 import { Gamepad } from "lucide-react";
 const mockChannel: User = {

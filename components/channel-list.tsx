@@ -13,7 +13,7 @@ import {
   AvatarImage,
 } from "@/components/ui/avatar";
 import React from "react";
-import { Profile } from "@/app/interfaces/user";
+import { Profile } from "@/interfaces/user";
 
 export function SidebarChannelList({ channels }: { channels: Profile[] }) {
   const { isMobile } = useSidebar();

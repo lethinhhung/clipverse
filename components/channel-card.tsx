@@ -6,7 +6,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { User } from "@/app/interfaces/user";
+import { User } from "@/interfaces/user";
 import Image from "next/image";
 import { Separator } from "./ui/separator";
 import { Mail } from 'lucide-react';
