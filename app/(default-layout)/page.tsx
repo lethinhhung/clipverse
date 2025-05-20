@@ -1,8 +1,12 @@
 import { AuthenticationDialog } from "@/components/authentication-dialog";
 import { DarkModeToggle } from "@/components/dark-mode-toggle";
+
+import VideoCard from "@/components/video-card";
+
 import { ReportDialog } from "@/components/report-dialog";
 import { Button } from "@/components/ui/button";
 import { TriangleAlert } from "lucide-react";
+
 import Image from "next/image";
 
 export default function Home() {
@@ -19,7 +23,12 @@ export default function Home() {
             priority
           />
 
-          <Image
+
+
+          <Image 
+
+
+
             className="dark:invert"
             src="/imgs/logo-default.svg"
             width={80}
