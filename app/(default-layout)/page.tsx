@@ -1,3 +1,4 @@
+import { AuthenticationDialog } from "@/components/authentication-dialog";
 import { DarkModeToggle } from "@/components/dark-mode-toggle";
 import { ReportDialog } from "@/components/report-dialog";
 import { Button } from "@/components/ui/button";
@@ -46,6 +47,9 @@ export default function Home() {
               <TriangleAlert />
             </Button>
           </ReportDialog>
+          <AuthenticationDialog asChild>
+            <Button>Login</Button>
+          </AuthenticationDialog>
           <DarkModeToggle />
           <a
             className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
