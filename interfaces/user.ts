@@ -3,6 +3,7 @@ import { Video } from "./video";
 import { Playlist } from "./playlist";
 
 export interface Profile {
+  _id: string;
   name: string;
   avatar: string;
   bio: string;
@@ -27,8 +28,8 @@ export interface User {
   status: string;
   role: [
     {
-        title: string;
-        icon: LucideIcon;
+      title: string;
+      icon: LucideIcon;
     }
   ];
   profile: Profile;
@@ -37,4 +38,3 @@ export interface User {
   updatedAt: Date;
 }
 
-export interface ChannelInfo {}

@@ -12,7 +12,7 @@ export default function Home() {
         <div className="flex flex-row gap-8 items-center">
           <Image
             className="dark:invert"
-            src="/next.svg"
+            src="/imgs/logo-text.svg"
             alt="Next.js logo"
             width={180}
             height={38}

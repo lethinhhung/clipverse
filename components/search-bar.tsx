@@ -4,7 +4,7 @@ import { Button } from "./ui/button";
 
 export default function SearcBar() {
   return (
-    <div className="flex items-center bg-background h-10 py-3 rounded-md border-2 w-90">
+    <div className="flex items-center bg-background h-10 py-3 rounded-md custom-border w-90">
       <Button variant="ghost">
         <Search className="" />
       </Button>
