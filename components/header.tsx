@@ -13,6 +13,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { LogOut } from "lucide-react";
 import { SidebarTrigger } from "./ui/sidebar";
+import { AuthenticationDialog } from "./authentication-dialog";
 
 export default function Header() {
   const loggined = false;
@@ -51,7 +52,9 @@ export default function Header() {
           </Button>
         </div>
       ) : (
-        <Button>Đăng nhập</Button>
+        <AuthenticationDialog asChild>
+          <Button>Login</Button>
+        </AuthenticationDialog>
       )}
     </div>
   );

@@ -5,14 +5,12 @@ import {
   Dialog,
   DialogClose,
   DialogContent,
-  DialogDescription,
   DialogFooter,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
 import * as DialogPrimitive from "@radix-ui/react-dialog";
-import { Separator } from "./ui/separator";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 export function AuthenticationDialog({
@@ -87,7 +85,8 @@ export function AuthenticationDialog({
           <TabsContent value="register" className="space-y-4 p-4 pt-0">
             <div className={"flex flex-col gap-4"}>
               <p className="text-sm text-muted-foreground">
-                Enter your email below to login to your account
+                Enter your username, email and passwords below to create a new
+                account
               </p>
               <form>
                 <div className="flex flex-col gap-4">
