@@ -20,7 +20,7 @@ export default function Header() {
   const [isSearchActive, setIsSearchActive] = useState(false);
   const loggined = false;
   return (
-    <div className="flex flex-row justify-between items-center bg-background text-foreground h-15 px-1 py-5 w-full">
+    <div className="flex flex-row justify-between sticky top-0 z-50 border-b items-center bg-background text-foreground h-15 px-4 py-5 w-full">
       {isSearchActive ? (
         <>
           <div className="flex items-center gap-2 w-full">

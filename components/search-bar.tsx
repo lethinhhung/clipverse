@@ -5,7 +5,6 @@ import { Button } from "./ui/button";
 export default function SearchBar() {
   return (
     <div className="flex items-center bg-background h-10 py-3 rounded-md custom-border w-full max-w-90 ">
-
       <Button variant="ghost" className="p-2">
         <Search />
       </Button>

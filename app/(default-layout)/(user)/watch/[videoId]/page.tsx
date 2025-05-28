@@ -30,6 +30,9 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Textarea } from "@/components/ui/textarea";
+import VideoCard from "@/components/video-card";
+import { ReportDialog } from "@/components/report-dialog";
+import { toast } from "sonner";
 
 export default function WatchPage() {
   const { videoId } = useParams();
@@ -98,12 +101,19 @@ export default function WatchPage() {
                       <Share2 />
                     </DropdownMenuShortcut>
                   </DropdownMenuItem>
-                  <DropdownMenuItem>
-                    Report
-                    <DropdownMenuShortcut>
-                      <Flag />
-                    </DropdownMenuShortcut>
-                  </DropdownMenuItem>
+                  <ReportDialog asChild videoId="12345">
+                    <DropdownMenuItem
+                      onSelect={(e) => {
+                        e.preventDefault();
+                        toast.success("Report submitted successfully!");
+                      }}
+                    >
+                      Report
+                      <DropdownMenuShortcut>
+                        <Flag />
+                      </DropdownMenuShortcut>
+                    </DropdownMenuItem>
+                  </ReportDialog>
                 </DropdownMenuContent>
               </DropdownMenu>
             </div>
@@ -132,12 +142,20 @@ export default function WatchPage() {
           </Card>
         </div>
         <div className="flex flex-col gap-4 w-full p-4">
-          <h4 className="scroll-m-20 text-xl font-semibold tracking-tight">
-            Comments
-          </h4>
-          <Textarea className="resize-none" spellCheck={false} />
-          <div className="flex justify-end">
-            <Button variant={"secondary"}>Comment</Button>
+          <div className="flex flex-col gap-4 w-full">
+            <h4 className="scroll-m-20 text-xl font-semibold tracking-tight">
+              Comments
+            </h4>
+            <Textarea className="resize-none" spellCheck={false} />
+            <div className="flex justify-end">
+              <Button variant={"secondary"}>Comment</Button>
+            </div>
+          </div>
+
+          <div className="flex flex-col gap-4 w-full">
+            <p className="text-sm text-muted-foreground mx-auto">
+              No comment found
+            </p>
           </div>
         </div>
       </div>
@@ -146,6 +164,16 @@ export default function WatchPage() {
         <h4 className="scroll-m-20 text-xl font-semibold tracking-tight p-4">
           Related Videos
         </h4>
+        <div className="columns-md p-4 gap-8 items-center space-y-8">
+          {Array.from({ length: 5 }).map((_, index) => (
+            <div
+              key={index}
+              className="w-full flex justify-center break-inside-avoid"
+            >
+              <VideoCard />
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

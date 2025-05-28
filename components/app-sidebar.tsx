@@ -17,6 +17,7 @@ import { SidebarChannelList } from "./channel-list";
 import { NavUser } from "./nav-user";
 import { Separator } from "./ui/separator";
 import Image from "next/image";
+import { ReportDialog } from "./report-dialog";
 
 const dummyData = {
   user: {
@@ -75,10 +76,6 @@ const dummyData = {
   ],
   services: [
     {
-      name: "Feedback",
-      url: "#",
-    },
-    {
       name: "About Us",
       url: "#",
     },
@@ -127,6 +124,15 @@ export default function AppSidebar({
         <SidebarGroup>
           <SidebarGroupLabel>Services</SidebarGroupLabel>
           <SidebarMenu>
+            {/* Feedback */}
+            <ReportDialog asChild isFeedback>
+              <SidebarMenuItem>
+                <SidebarMenuButton>
+                  <span>Feedback</span>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+            </ReportDialog>
+            {/* Items */}
             {dummyData.services.map((item) => (
               <SidebarMenuItem key={item.name}>
                 <SidebarMenuButton asChild>
