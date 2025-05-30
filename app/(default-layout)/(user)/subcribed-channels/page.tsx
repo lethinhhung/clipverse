@@ -1,6 +1,8 @@
 import { User } from "@/interfaces/user";
+import { Gamepad, Radar } from "lucide-react";
 import ChannelCard from "@/components/channel-card";
-import { Gamepad } from "lucide-react";
+import WordArt from "@/components/word-art";
+
 const mockChannel: User = {
   _id: "1",
   username: "duyy05568",
@@ -35,8 +37,8 @@ const mockChannel: User = {
 
 export default function ChannelsPage() {
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <h1 className="text-2xl font-bold">Channels Page</h1>
+    <div className="flex flex-col justify-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
+      <WordArt content="Subscribed Channels" svgSrc="/imgs/earth.svg" />
       <ChannelCard channel={mockChannel} />
     </div>
   );
