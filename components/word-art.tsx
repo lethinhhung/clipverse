@@ -10,7 +10,7 @@ export default function WordArt({ content, svgSrc }: { content: string; svgSrc: 
         width={120}
         height={120}
       />
-      <span className="-ml-12 mt-4 text-3xl font-bold tracking-[4px] italic">{content}</span>
+      <h1 className="-ml-12 mt-4 text-3xl font-bold tracking-[4px] italic">{content}</h1>
     </div>
   );
 }
