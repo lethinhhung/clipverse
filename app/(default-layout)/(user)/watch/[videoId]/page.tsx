@@ -38,7 +38,7 @@ export default function WatchPage() {
   const { videoId } = useParams();
   return (
     <div className="grid grid-cols-4 gap-2">
-      <div className="col-span-full xl:col-span-3 p-2 sm:p-4">
+      <div className="col-span-full 2xl:col-span-3 p-2 sm:p-4">
         <div className="relative w-full">
           <Button
             size={"icon"}
@@ -160,7 +160,7 @@ export default function WatchPage() {
         </div>
       </div>
 
-      <div className="col-span-full xl:col-span-1 p-2 sm:p-4">
+      <div className="col-span-full 2xl:col-span-1 p-2 sm:p-4">
         <h4 className="scroll-m-20 text-xl font-semibold tracking-tight p-4">
           Related Videos
         </h4>
