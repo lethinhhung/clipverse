@@ -28,10 +28,10 @@ export default function VideoCard({ ...props }: React.ComponentProps<"div">) {
         <div className="flex flex-row gap-5 items-center text-sm ">
           <div className="flex flex-row items-center gap-2">
             <Image
-              src="/imgs/dummy-avatars/mouse.png"
+              src="/imgs/dummy-avatars/avt.png"
               alt="Animal Planet"
-              width={10}
-              height={10}
+              width={100}
+              height={100}
               className="rounded-md w-10 h-10"
             />
             <span>Animal Planet</span>

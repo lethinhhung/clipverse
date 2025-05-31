@@ -79,12 +79,13 @@ const notificationsData = [
 export default function Header() {
   const [isSearchActive, setIsSearchActive] = useState(false);
   const [notifications, setNotifications] = useState(notificationsData);
-  const loggined = true;
   const router = useRouter();
+
+  const loggined = true;
 
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth >= 640) {
+      if (window.innerWidth >= 700) {
         setIsSearchActive(false);
       }
     };
@@ -118,9 +119,8 @@ export default function Header() {
           <Button variant="ghost" onClick={() => setIsSearchActive(false)}>
             <ArrowLeft />
           </Button>
-          <div className="flex-1 w-full flex justify-center">
-            <SearchBar />
-          </div>
+
+          <SearchBar />
         </div>
       ) : (
         <>
@@ -274,9 +274,7 @@ export default function Header() {
                       priority
                     />
                     <div className="flex flex-col gap-1">
-                      <p className="line-clamp-2">
-                        ĐÔNG TÂY PROMOTION OFFICIAL
-                      </p>
+                      <p className="line-clamp-2">Your Channel Name</p>
                       <Button
                         variant="link"
                         className="text-xs text-gray-400 !p-0 !px-0 self-start text-left gap-1 h-fit"
@@ -289,10 +287,10 @@ export default function Header() {
                     </div>
                   </DropdownMenuLabel>
                   <DropdownMenuSeparator />
-                  <DropdownMenuItem>Profile</DropdownMenuItem>
-                  <DropdownMenuItem>Billing</DropdownMenuItem>
-                  <DropdownMenuItem>Team</DropdownMenuItem>
-                  <DropdownMenuItem>Subscription</DropdownMenuItem>
+                  <DropdownMenuItem>Option 1</DropdownMenuItem>
+                  <DropdownMenuItem>Option 2</DropdownMenuItem>
+                  <DropdownMenuItem>Option 3</DropdownMenuItem>
+                  <DropdownMenuItem>Option 4</DropdownMenuItem>
                   <DropdownMenuSeparator />
                   <DropdownMenuItem>
                     Log out
