@@ -40,7 +40,7 @@ export default function WatchPage() {
     <div className="grid grid-cols-4 gap-2">
       <div className="col-span-full 2xl:col-span-3 p-2 sm:p-4">
         <div className="relative w-full">
-          <Button
+          {/* <Button
             size={"icon"}
             variant={"secondary"}
             className="w-20 h-20 rounded-full z-10 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
@@ -53,7 +53,23 @@ export default function WatchPage() {
             width={1920}
             height={1080}
             className="aspect-video w-full object-cover rounded-lg"
-          />
+          /> */}
+          <video
+            width="1920"
+            height="1080"
+            controls
+            preload="none"
+            className="aspect-video w-full object-cover rounded-lg"
+          >
+            <source src="/video-demo.mp4" type="video/mp4" />
+            {/* <track
+              src="/path/to/captions.vtt"
+              kind="subtitles"
+              srcLang="en"
+              label="English"
+            /> */}
+            {/* Your browser does not support the video tag. */}
+          </video>
         </div>
         <div className="flex flex-col gap-4 w-full p-4">
           <h2 className="scroll-m-20 text-3xl font-semibold tracking-tight">
