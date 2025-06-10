@@ -1,8 +1,65 @@
+import { TabsTrigger, TabsContent } from "@/components/ui/tabs";
+import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
+import { CustomTab } from "@/components/custom-tab";
+import VideoCard from "@/components/video-card";
+import VideoCardList from "@/components/video-card-list";
+import { ChartBarLabel } from "@/components/chart-bar-label";
+
 export default function MyChannelPage() {
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <h1 className="text-2xl font-bold">My Channel Page</h1>
-      <p className="text-lg">This is the my channel page.</p>
+    <div>
+      <CustomTab
+        defaultValue="dashboard"
+        tabs={[
+          {
+            trigger: (
+              <TabsTrigger className="w-20 sm:w-35" value="dashboard">
+                Dashboard
+              </TabsTrigger>
+            ),
+            content: (
+              <TabsContent className="mt-10" value="dashboard">
+                <div className=" w-full flex flex-row jutify-space-between">
+                  <ChartBarLabel />
+                </div>
+              </TabsContent>
+            ),
+          },
+          {
+            trigger: (
+              <TabsTrigger className="w-20 sm:w-35" value="video">
+                Video
+              </TabsTrigger>
+            ),
+            content: (
+              <TabsContent className="mt-10" value="video">
+                <div className=" w-full ">
+                  <VideoCardList />
+                </div>
+              </TabsContent>
+            ),
+          },
+          {
+            trigger: (
+              <TabsTrigger className="w-20 sm:w-35" value="playlist">
+                Playlist
+              </TabsTrigger>
+            ),
+            content: (
+              <TabsContent className="mt-10" value="playlist">
+                <Card>
+                  <CardHeader>
+                    <CardTitle>Video Manager</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p>Playlist</p>
+                  </CardContent>
+                </Card>
+              </TabsContent>
+            ),
+          },
+        ]}
+      />
     </div>
   );
 }
