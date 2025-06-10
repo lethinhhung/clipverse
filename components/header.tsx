@@ -33,7 +33,7 @@ const notificationsData = [
     time: "12 hours ago",
     type: "info",
     read: false,
-    avatar: "/imgs/dummy-avatars/mouse.png",
+    avatar: "/imgs/dummy-avatars/avt.png",
   },
   {
     id: 2,
@@ -41,7 +41,7 @@ const notificationsData = [
     time: "2 hours ago",
     type: "report",
     read: false,
-    avatar: "/imgs/dummy-avatars/mouse.png",
+    avatar: "/imgs/dummy-avatars/avt.png",
   },
   {
     id: 3,
@@ -49,7 +49,7 @@ const notificationsData = [
     time: "2 hours ago",
     type: "report",
     read: true,
-    avatar: "/imgs/dummy-avatars/mouse.png",
+    avatar: "/imgs/dummy-avatars/avt.png",
   },
   {
     id: 4,
@@ -57,7 +57,7 @@ const notificationsData = [
     time: "1 hour ago",
     type: "info",
     read: true,
-    avatar: "/imgs/dummy-avatars/mouse.png",
+    avatar: "/imgs/dummy-avatars/avt.png",
   },
   {
     id: 5,
@@ -65,7 +65,7 @@ const notificationsData = [
     time: "30 minutes ago",
     type: "info",
     read: false,
-    avatar: "/imgs/dummy-avatars/mouse.png",
+    avatar: "/imgs/dummy-avatars/avt.png",
   },
   {
     id: 6,
@@ -73,7 +73,7 @@ const notificationsData = [
     time: "10 minutes ago",
     type: "info",
     read: true,
-    avatar: "/imgs/dummy-avatars/mouse.png",
+    avatar: "/imgs/dummy-avatars/avt.png",
   },
 ];
 
@@ -247,7 +247,7 @@ export default function Header() {
                               {notif.text}
                             </p>
                             <Image
-                              src={notif.avatar}
+                              src="/imgs/dummy-avatars/mouse.png"
                               alt="avatar"
                               width={100}
                               height={100}
