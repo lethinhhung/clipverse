@@ -20,6 +20,7 @@ import {
   Bell,
   EllipsisVertical,
   Trash2,
+  TriangleAlert,
 } from "lucide-react";
 import { SidebarTrigger } from "./ui/sidebar";
 import { AuthenticationDialog } from "./authentication-dialog";
@@ -94,6 +95,12 @@ export default function Header() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  const markRead = (id: number) => {
+    setNotifications((prev) =>
+      prev.map((notif) => (notif.id === id ? { ...notif, read: true } : notif))
+    );
+  };
+
   const markAllRead = () => {
     setNotifications((prev) =>
       prev.map((notif) => ({
@@ -119,7 +126,6 @@ export default function Header() {
           <Button variant="ghost" onClick={() => setIsSearchActive(false)}>
             <ArrowLeft />
           </Button>
-
           <SearchBar />
         </div>
       ) : (
@@ -166,8 +172,8 @@ export default function Header() {
                   </div>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent
-                  className="w-110 px-2 max-h-[calc(5*6rem)] overflow-y-auto"
-                  align="end"
+                  className="w-70 sm:w-110 px-2 max-h-96 sm:max-h-120 overflow-y-auto"
+                  align="center"
                   sideOffset={25}
                 >
                   <DropdownMenuLabel className="flex items-center justify-between">
@@ -208,14 +214,27 @@ export default function Header() {
                   <DropdownMenuSeparator />
                   {notifications.map((notif) => (
                     <DropdownMenu key={notif.id}>
-                      <DropdownMenuItem className="flex items-start gap-3 py-4 h-24">
-                        <Image
-                          src={notif.avatar}
-                          alt="avatar"
-                          width={100}
-                          height={100}
-                          className="w-10 h-10 rounded-full object-cover flex-shrink-0"
-                        />
+                      <DropdownMenuItem
+                        onClick={() => markRead(notif.id)}
+                        className="flex items-start gap-3 py-4 h-24"
+                      >
+                        {notif.type === "report" ? (
+                          <div className="h-full justify-center w-10 flex items-center">
+                            <TriangleAlert
+                              size={20}
+                              className="rounded-full text-red-500 "
+                            />
+                          </div>
+                        ) : (
+                          <Image
+                            src={notif.avatar}
+                            alt="avatar"
+                            width={100}
+                            height={100}
+                            className="w-10 h-10 rounded-full object-cover flex-shrink-0"
+                          />
+                        )}
+
                         <div className="flex-1 flex flex-col justify-center gap-1">
                           <div className="flex justify-between items-start w-full gap-5">
                             <p
@@ -232,7 +251,7 @@ export default function Header() {
                               alt="avatar"
                               width={100}
                               height={100}
-                              className="w-20 h-10 rounded-md object-cover flex-shrink-0"
+                              className="hidden sm:block w-20 h-10 rounded-md object-cover flex-shrink-0"
                             />
 
                             <Button
