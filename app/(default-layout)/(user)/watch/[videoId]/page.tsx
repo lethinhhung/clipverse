@@ -33,6 +33,29 @@ import { Textarea } from "@/components/ui/textarea";
 import VideoCard from "@/components/video-card";
 import { ReportDialog } from "@/components/report-dialog";
 import { toast } from "sonner";
+import { Video } from "@/interfaces/video";
+
+const video: Video = {
+  _id: "1",
+  title: "Sample Video Title",
+  time: 10,
+  description: "This is a sample video description.",
+  fileUrl: "https://example.com/video.mp4",
+  thumbnailUrl: "https://example.com/thumbnail.jpg",
+  tags: [],
+  isPrivate: false,
+  progress: {
+    views: 1000,
+    comments: [],
+    reports: [],
+    likes: [],
+    dislikes: [],
+    createdAt: new Date(),
+    updatedAt: new Date(),
+  },
+  createdAt: new Date(),
+  updatedAt: new Date(),
+};
 
 export default function WatchPage() {
   const { videoId } = useParams();
@@ -180,14 +203,9 @@ export default function WatchPage() {
         <h4 className="scroll-m-20 text-xl font-semibold tracking-tight p-4">
           Related Videos
         </h4>
-        <div className="columns-md p-4 gap-8 items-center space-y-8">
+        <div className="columns-md p-4 gap-8 space-y-8">
           {Array.from({ length: 5 }).map((_, index) => (
-            <div
-              key={index}
-              className="w-full flex justify-center break-inside-avoid"
-            >
-              <VideoCard />
-            </div>
+            <VideoCard key={index} video={video} />
           ))}
         </div>
       </div>
