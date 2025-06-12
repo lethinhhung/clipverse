@@ -4,6 +4,7 @@ import { Tag } from "./tag";
 export interface Video {
   _id: string;
   title: string;
+  time: number;
   description: string;
   fileUrl: string;
   thumbnailUrl: string;

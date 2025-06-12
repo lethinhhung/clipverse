@@ -1,9 +1,10 @@
 "use client";
 import { User } from "@/interfaces/user";
-import { Gamepad } from "lucide-react";
+import { Gamepad, Funnel } from "lucide-react";
 import ChannelCard from "@/components/channel-card";
 import WordArt from "@/components/word-art";
 import SearchBar from "@/components/search-bar";
+import { Button } from "@/components/ui/button";
 import Tag from "@/components/tag";
 import Paginator from "@/components/paginator";
 
@@ -50,13 +51,20 @@ const mockChannels = Array(30).fill(null).map((_, index) => ({
 
 const ITEMS_PER_PAGE = 6;
 
-const mockRole = ["Gamer", "Developer", "Food Reviewer", "Vlogger"];
+const mockRole = ["Gamer", "Developer", "Food Reviewer", "Vlogger", "Analysist", "Engineer"];
+
+const sortItem = ["A - Z", "Lasted Upload", "Lasted Subcribe"];
 
 export default function ChannelsPage() {
   return (
-    <div className="flex min-h-screen pb-20 p-8 gap-4 justify-around">
+    <div className="flex flex-col lg:flex-row min-h-screen pb-20 p-8 gap-4 justify-around">
       <div className="flex flex-col gap-10">
-        <WordArt content="Subscribed Channels" svgSrc="/imgs/earth.svg" />
+        <div className="flex justify-between">
+          <WordArt content="Subscribed Channels" svgSrc="/imgs/earth.svg" />
+          <Button variant={"outline"} className="custom-border self-center mt-6 lg:hidden md:hidden sm:block">
+            <Funnel />
+          </Button>
+        </div>
         <Paginator
           items={mockChannels}
           itemsPerPage={ITEMS_PER_PAGE}
@@ -64,7 +72,7 @@ export default function ChannelsPage() {
         />
       </div>
 
-      <div className="mt-20 min-w-60 sticky top-20 h-fit">
+      <div className="mt-20 min-w-60 sticky top-20 h-fit lg:block md:block sm:hidden">
         <h2 className="text-2xl font-bold tracking-[4px] italic">Filter:</h2>
         <div className="flex flex-col gap-8 mt-4 items-center">
           <div className="w-full">
@@ -79,6 +87,15 @@ export default function ChannelsPage() {
             <div className="flex flex-wrap gap-2 mt-2 ml-3 max-w-90">
               {mockRole.map((role, index) => (
                 <Tag key={index} content={role} />
+              ))}
+            </div>
+          </div>
+
+          <div className="w-full">
+            <span className="text-xl font-bold tracking-[2px]">Sort by</span>
+            <div className="flex flex-wrap gap-2 mt-2 ml-3 max-w-90">
+              {sortItem.map((item, index) => (
+                <Tag key={index} content={item} />
               ))}
             </div>
           </div>
