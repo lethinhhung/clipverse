@@ -40,7 +40,7 @@ export default function ChannelLayout({
   };
   return (
     <div className="flex items-center justify-center h-full w-full mt-15 mb-15 ">
-      <div className="flex flex-col h-full sm:w-[70%] w-[90%] max-w-310  gap-15">
+      <div className="flex flex-col h-full sm:w-[70%] w-[90%] max-w-310  gap-10 sm:gap-15">
         <ChannelHeader channel={mockChannel} />
         {children}
       </div>
