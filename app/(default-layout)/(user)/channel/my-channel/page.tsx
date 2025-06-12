@@ -20,21 +20,19 @@ export default function MyChannelPage() {
             ),
             content: (
               <TabsContent className="mt-2 sm:mt-6" value="dashboard">
-                <div className=" w-full flex flex-col md:flex-row gap-6 md:gap-10  ">
+                <div className="w-full flex flex-col items-center p-2 sm:p-0 sm:items-start sm:flex-row gap-6 sm:gap-10">
                   <ChartBarLabel />
-                  <div className="w-full flex flex-col jutify-between">
-                    <div className="flex flex-row gap-4">
-                      <InfoChannelCard
-                        title="Views"
-                        content="+ 15"
-                        description="+155 since last month"
-                      />
-                      <InfoChannelCard
-                        title="Subscribers"
-                        content="+ 27"
-                        description="+2 since last month"
-                      />
-                    </div>
+                  <div className="flex flex-row gap-4">
+                    <InfoChannelCard
+                      title="Views"
+                      content="+ 15"
+                      description="+155 since last month"
+                    />
+                    <InfoChannelCard
+                      title="Subscribers"
+                      content="+ 27"
+                      description="+2 since last month"
+                    />
                   </div>
                 </div>
               </TabsContent>
