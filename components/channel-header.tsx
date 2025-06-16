@@ -1,8 +1,9 @@
 import { User } from "@/interfaces/user";
-import { Button } from "./ui/button";
+
 import { FolderSearch } from "lucide-react";
 import Image from "next/image";
 import { EditProfileModal } from "./edit-profile-model";
+import { ShareModal } from "./share-modal";
 
 export function ChannelHeader({ channel }: { channel: User }) {
   return (
@@ -56,7 +57,9 @@ export function ChannelHeader({ channel }: { channel: User }) {
             currentBio={channel.profile.bio}
             currentAvatar={channel.profile.avatar}
           />
-          <Button variant="outline">Share Channel</Button>
+          <ShareModal
+            link={"http://localhost:3000/channel/" + channel._id}
+          />
         </div>
       </div>
     </div>

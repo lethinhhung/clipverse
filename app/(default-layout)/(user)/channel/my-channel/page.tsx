@@ -1,7 +1,6 @@
 import { TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { CustomTab } from "@/components/custom-tab";
-import VideoCard from "@/components/video-card";
 import VideoCardList from "@/components/video-card-list";
 import { ChartBarLabel } from "@/components/chart-bar-label";
 import { InfoChannelCard } from "@/components/info-channel-card";
@@ -68,6 +67,20 @@ export default function MyChannelPage() {
                     <p>Playlist</p>
                   </CardContent>
                 </Card>
+              </TabsContent>
+            ),
+          },
+          {
+            trigger: (
+              <TabsTrigger className="w-20 sm:w-35" value="favourite  ">
+                Favourite
+              </TabsTrigger>
+            ),
+            content: (
+              <TabsContent className="mt-2 sm:mt-6" value="favourite  ">
+                <div className=" w-full ">
+                  <VideoCardList deleteButton />
+                </div>
               </TabsContent>
             ),
           },
