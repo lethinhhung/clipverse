@@ -3,7 +3,6 @@ import { ReactNode, useState } from "react";
 import {
   Pagination,
   PaginationContent,
-  PaginationEllipsis,
   PaginationItem,
   PaginationLink,
   PaginationNext,
@@ -16,7 +15,11 @@ interface PaginatorProps<Type> {
   renderItem: (item: Type) => ReactNode;
 }
 
-export default function Paginator<Type>({ items, itemsPerPage, renderItem }: PaginatorProps<Type>) {
+export default function Paginator<Type>({
+  items,
+  itemsPerPage,
+  renderItem,
+}: PaginatorProps<Type>) {
   const [currentPage, setCurrentPage] = useState(1);
 
   const totalPages = Math.ceil(items.length / itemsPerPage);
@@ -36,8 +39,12 @@ export default function Paginator<Type>({ items, itemsPerPage, renderItem }: Pag
         <PaginationContent>
           <PaginationItem>
             <PaginationPrevious
-              onClick={() => setCurrentPage(page => Math.max(1, page - 1))}
-              className={currentPage === 1 ? "pointer-events-none opacity-50" : "cursor-pointer"}
+              onClick={() => setCurrentPage((page) => Math.max(1, page - 1))}
+              className={
+                currentPage === 1
+                  ? "pointer-events-none opacity-50"
+                  : "cursor-pointer"
+              }
             />
           </PaginationItem>
 
@@ -54,8 +61,14 @@ export default function Paginator<Type>({ items, itemsPerPage, renderItem }: Pag
 
           <PaginationItem>
             <PaginationNext
-              onClick={() => setCurrentPage(page => Math.min(totalPages, page + 1))}
-              className={currentPage === totalPages ? "pointer-events-none opacity-50" : "cursor-pointer"}
+              onClick={() =>
+                setCurrentPage((page) => Math.min(totalPages, page + 1))
+              }
+              className={
+                currentPage === totalPages
+                  ? "pointer-events-none opacity-50"
+                  : "cursor-pointer"
+              }
             />
           </PaginationItem>
         </PaginationContent>

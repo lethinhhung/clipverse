@@ -40,18 +40,27 @@ const mockChannel: User = {
   updatedAt: new Date(),
 };
 
-const mockChannels = Array(30).fill(null).map((_, index) => ({
-  ...mockChannel,
-  _id: `${index + 1}`,
-  profile: {
-    ...mockChannel.profile,
-    name: `Channel ${index + 1}`,
-  }
-}));
+const mockChannels = Array(30)
+  .fill(null)
+  .map((_, index) => ({
+    ...mockChannel,
+    _id: `${index + 1}`,
+    profile: {
+      ...mockChannel.profile,
+      name: `Channel ${index + 1}`,
+    },
+  }));
 
 const ITEMS_PER_PAGE = 6;
 
-const mockRole = ["Gamer", "Developer", "Food Reviewer", "Vlogger", "Analysist", "Engineer"];
+const mockRole = [
+  "Gamer",
+  "Developer",
+  "Food Reviewer",
+  "Vlogger",
+  "Analysist",
+  "Engineer",
+];
 
 const sortItem = ["A - Z", "Lasted Upload", "Lasted Subcribe"];
 
@@ -61,7 +70,10 @@ export default function ChannelsPage() {
       <div className="flex flex-col gap-10">
         <div className="flex justify-between">
           <WordArt content="Subscribed Channels" svgSrc="/imgs/earth.svg" />
-          <Button variant={"outline"} className="custom-border self-center mt-6 lg:hidden md:hidden sm:block">
+          <Button
+            variant={"outline"}
+            className="custom-border self-center mt-6 md:hidden block"
+          >
             <Funnel />
           </Button>
         </div>
@@ -72,7 +84,7 @@ export default function ChannelsPage() {
         />
       </div>
 
-      <div className="mt-20 min-w-60 sticky top-20 h-fit lg:block md:block sm:hidden">
+      <div className="mt-20 min-w-60 sticky top-20 h-fit xl:block hidden">
         <h2 className="text-2xl font-bold tracking-[4px] italic">Filter:</h2>
         <div className="flex flex-col gap-8 mt-4 items-center">
           <div className="w-full">
