@@ -5,7 +5,6 @@ import {
   Flag,
   ListPlus,
   MoreHorizontal,
-  Play,
   Share2,
   ThumbsDown,
   ThumbsUp,

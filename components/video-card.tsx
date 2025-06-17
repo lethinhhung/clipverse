@@ -13,10 +13,10 @@ import { Video } from "@/interfaces/video";
 
 export default function VideoCard({
   video,
-  deleteButton,
-}: {
+}: // deleteButton,
+{
   video: Video;
-  deleteButton: boolean;
+  // deleteButton: boolean;
 }) {
   return (
     <HoverCard>
