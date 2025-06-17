@@ -13,19 +13,17 @@ import { Video } from "@/interfaces/video";
 
 export default function VideoCard({
   video,
-  deleteButton,
-}: {
+}: // deleteButton,
+{
   video: Video;
-  deleteButton: boolean;
+  // deleteButton: boolean;
 }) {
   return (
     <HoverCard>
       <HoverCardTrigger asChild>
         <Card
           className="
-            p-0 rounded-md bg-background h-86 w-full
-            flex flex-col gap-0 relative cursor-pointer
-            max-w-full s:max-w-[90%]
+           w-full max-w-120 mx-auto p-0 rounded-md bg-background flex flex-col gap-0 relative cursor-pointer break-inside-avoid-column
           "
         >
           <Badge className="absolute top-5 right-[-2] text-xs px-2.5 py-1.5 rounded-sm rounded-e-xs shadow-md z-10">
