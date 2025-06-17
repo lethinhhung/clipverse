@@ -47,7 +47,7 @@ export default function PlaylistDetailPage() {
           </Button>
         </div>
       </div>
-      <div>
+      <div className="lg:block md:block sm:hidden">
         <span className="mt-20 min-w-80">Channel info</span>
       </div>
     </div>
