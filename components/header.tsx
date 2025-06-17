@@ -133,14 +133,19 @@ export default function Header() {
           <div className="flex flex-row items-center justify-between w-full">
             <div className="flex items-center gap-2">
               <SidebarTrigger className="flex md:hidden" />
-              <Image
-                className="dark:invert w-10 h-10 object-contain"
-                src="/imgs/logo-default.svg"
-                width={100}
-                height={40}
-                alt="Logo"
-                priority
-              />
+            <Button variant="ghost" className="p-0">
+                <Image
+                  className="dark:invert w-10 h-10 object-contain"
+                  src="/imgs/logo-default.svg"
+                  width={100}
+                  height={40}
+                  alt="Logo"
+                  priority
+                  onClick={() => {
+                    router.push("/");
+                  }}
+                />
+            </Button>
             </div>
 
             <div className="hidden sm:flex flex-1 px-2 justify-center w-full">

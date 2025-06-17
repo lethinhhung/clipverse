@@ -11,9 +11,11 @@ import {
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
+import { Avatar, AvatarImage } from "@/components/ui/avatar";
 import { useRef, useState } from "react";
-import { Ghost, UploadIcon } from "lucide-react";
+import { Pencil, UploadIcon } from "lucide-react";
+import { Textarea } from "./ui/textarea";
+import { DialogClose } from "@radix-ui/react-dialog";
 
 export function EditProfileModal({
   currentName,
@@ -43,16 +45,21 @@ export function EditProfileModal({
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button>Edit Profile</Button>
+        <Button>
+          <Pencil />
+          Edit Profile
+        </Button>
       </DialogTrigger>
-      <DialogContent className="max-w-md">
+      <DialogContent
+        onOpenAutoFocus={(e) => e.preventDefault()}
+        className="max-w-md"
+      >
         <DialogHeader>
           <DialogTitle>Update Profile</DialogTitle>
           <DialogDescription>
             Customize your avatar, name & bio.
           </DialogDescription>
         </DialogHeader>
-
         <div className="flex flex-col items-center gap-2 mt-4">
           <div
             className="relative group cursor-pointer"
@@ -76,21 +83,28 @@ export function EditProfileModal({
             Click avatar to change
           </p>
         </div>
-
         <div className="flex flex-col gap-4 mt-1">
           <div className="flex flex-col gap-3">
             <Label>Name</Label>
-            <Input value={name} onChange={(e) => setName(e.target.value)} />
+            <Input value={name} />
           </div>
           <div className="flex flex-col gap-3">
             <Label>Bio</Label>
-            <Input value={bio} onChange={(e) => setBio(e.target.value)} />
+            <Textarea
+              id="bio"
+              value={bio}
+              onChange={(e) => setBio(e.target.value)}
+              placeholder="Write something cool here..."
+              className="resize-none"
+            />
           </div>
         </div>
 
         <div className="flex flex-row gap-3 justify-end mt-6">
           <Button>Save Changes</Button>
-          <Button variant="outline">Canncel</Button>
+          <DialogClose asChild>
+            <Button variant="outline">Cancel</Button>
+          </DialogClose>
         </div>
       </DialogContent>
     </Dialog>

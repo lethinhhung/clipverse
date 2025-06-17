@@ -11,7 +11,13 @@ import { CalendarDays } from "lucide-react";
 import Image from "next/image";
 import { Video } from "@/interfaces/video";
 
-export default function VideoCard({ video }: { video: Video }) {
+export default function VideoCard({
+  video,
+  deleteButton,
+}: {
+  video: Video;
+  deleteButton: boolean;
+}) {
   return (
     <HoverCard>
       <HoverCardTrigger asChild>

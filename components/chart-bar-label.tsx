@@ -47,7 +47,7 @@ export function ChartBarLabel() {
   const barColor = theme === "dark" ? "#ffffff" : "#000000";
 
   return (
-    <Card className="w-full max-w-sm h-auto overflow-hidden">
+    <Card className="w-full max-w-sm min-w-70 h-auto overflow-hidden">
       <CardHeader className="pb-2">
         <CardTitle className="text-base">Traffic Overview</CardTitle>
         <CardDescription className="text-xs text-gray-500">
@@ -55,7 +55,7 @@ export function ChartBarLabel() {
         </CardDescription>
       </CardHeader>
 
-      <CardContent className="w-full h-[180px] pt-0">
+      <CardContent className="w-full h-45 pt-0">
         <ChartContainer config={chartConfig}>
           <ResponsiveContainer width="100%" height="100%">
             <BarChart data={chartData} margin={{ top: 10 }}>
