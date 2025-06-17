@@ -346,11 +346,23 @@ export default function VideoCardList() {
 
   return (
     <div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 justify-items-center">
-        {paginatedVideos.map((video) => (
-          <VideoCard key={video._id} video={video} />
-        ))}
-      </div>
+      {paginatedVideos.length === 0 ? (
+        <div className="w-full h-64 flex flex-col items-center justify-center text-center">
+          <span className="text-xl font-semibold text-gray-500 mb-2">
+            No videos found. Time to be the first one to make some noise!
+          </span>
+        </div>
+      ) : (
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 justify-items-center">
+          {paginatedVideos.map((video) => (
+            <VideoCard
+              key={video._id}
+              video={video}
+              // deleteButton={deleteButton}
+            />
+          ))}
+        </div>
+      )}
 
       <Pagination className="mt-8">
         <PaginationContent className="flex justify-center items-center gap-4">
