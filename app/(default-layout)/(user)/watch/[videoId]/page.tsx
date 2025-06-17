@@ -204,7 +204,12 @@ export default function WatchPage() {
         </h4>
         <div className="columns-md p-4 gap-8 space-y-8">
           {Array.from({ length: 5 }).map((_, index) => (
-            <VideoCard key={index} video={video} />
+            <div
+              key={index}
+              className="w-full flex justify-center break-inside-avoid"
+            >
+              {/* <VideoCard /> */}
+            </div>
           ))}
         </div>
       </div>

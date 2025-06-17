@@ -12,8 +12,8 @@ import { Separator } from "./ui/separator";
 
 export default function ChannelCard({ channel }: { channel: User }) {
   return (
-    <Card className="min-w-75 w-200 bg-background custom-border">
-      <div className="flex items-center justify-around">
+    <Card className="lg:w-200 bg-background custom-border py-4 mt-4">
+      <div className="flex flex-col sm:flex-col md:flex-row lg:flex-row items-center justify-around">
         <CardContent className="flex flex-col justify-center gap-4 max-w-65">
           <CardTitle className="text-2xl">{channel.profile.name}</CardTitle>
           <div className="flex flex-col gap-4 ml-4">
