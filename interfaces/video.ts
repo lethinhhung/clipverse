@@ -35,4 +35,4 @@ export interface Comment {
   updatedAt: Date;
 }
 
-export interface SimpleVideoInfo {}
+

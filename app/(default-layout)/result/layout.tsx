@@ -1,4 +1,5 @@
-import { Button } from "@/components/ui/button";
+import { TagsList } from "@/components/tags-list";
+import { Tag } from "@/interfaces/tag";
 
 export function generateMetadata() {
   return {
@@ -7,6 +8,54 @@ export function generateMetadata() {
   };
 }
 
+const mockTypes: Tag[] = [
+  {
+    _id: "1",
+    title: "Video",
+    createdAt: new Date(),
+    updatedAt: new Date(),
+  },
+  {
+    _id: "2",
+    title: "Channel",
+    createdAt: new Date(),
+    updatedAt: new Date(),
+  },
+  {
+    _id: "3",
+    title: "Topic",
+    createdAt: new Date(),
+    updatedAt: new Date(),
+  },
+];
+
+const mockTopics: Tag[] = [
+  {
+    _id: "1",
+    title: "Game",
+    createdAt: new Date(),
+    updatedAt: new Date(),
+  },
+  {
+    _id: "2",
+    title: "Lifestyle",
+    createdAt: new Date(),
+    updatedAt: new Date(),
+  },
+  {
+    _id: "3",
+    title: "Movie",
+    createdAt: new Date(),
+    updatedAt: new Date(),
+  },
+  {
+    _id: "4",
+    title: "Food",
+    createdAt: new Date(),
+    updatedAt: new Date(),
+  },
+];
+
 export default function ResultLayout({
   children,
 }: {
@@ -14,24 +63,10 @@ export default function ResultLayout({
 }) {
   return (
     <div className="w-full h-full grid grid-cols-4">
-      <div className="sticky top-15 flex gap-2 w-full flex col-span-full">
+      <div className="lg:sticky top-15 flex flex-col lg:flex-row gap-2 w-full p-4 col-span-full">
         <div className="flex flex-col gap-2">Sort by</div>
-        <div className="flex flex-col gap-2">
-          <p>Type</p>
-          <div className="flex flex-wrap gap-2">
-            <Button>Video</Button>
-            <Button>Channel</Button>
-          </div>
-        </div>
-        <div className="flex flex-col gap-2">
-          <p>Topic</p>
-          <div className="flex flex-wrap gap-2">
-            <Button>Game</Button>
-            <Button>Lifestyle</Button>
-            <Button>Movie</Button>
-            <Button>Food</Button>
-          </div>
-        </div>
+        <TagsList title="Type" tags={mockTypes} />
+        <TagsList title="Topics" tags={mockTopics} multiple />
       </div>
       <div className="col-span-full 2xl:col-span-3">{children}</div>
       <div className="hidden 2xl:col-span-1">Top channel details</div>
