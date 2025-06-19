@@ -62,14 +62,13 @@ export default function ResultLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="w-full h-full grid grid-cols-4">
-      <div className="lg:sticky top-15 flex flex-col lg:flex-row gap-2 w-full p-4 col-span-full">
+    <div className="w-full h-full flex flex-col gap-4">
+      <div className="lg:sticky top-15 flex flex-col lg:flex-row gap-2 w-full p-4">
         <div className="flex flex-col gap-2">Sort by</div>
         <TagsList title="Type" tags={mockTypes} />
         <TagsList title="Topics" tags={mockTopics} multiple />
       </div>
-      <div className="col-span-full 2xl:col-span-3">{children}</div>
-      <div className="hidden 2xl:col-span-1">Top channel details</div>
+      {children}
     </div>
   );
 }
