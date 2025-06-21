@@ -328,7 +328,15 @@ const dummyVideos: Video[] = [
   },
 ];
 
-export default function VideoCardList() {
+interface VideoCardListProps {
+  deleteButton?: boolean;
+  onDelete?: (id: string) => void;
+}
+
+export default function VideoCardList({
+  deleteButton = false,
+  onDelete,
+}: VideoCardListProps) {
   const [currentPage, setCurrentPage] = useState(1);
   const videosPerPage = 6;
   const totalPages = Math.ceil(dummyVideos.length / videosPerPage);
@@ -358,7 +366,8 @@ export default function VideoCardList() {
             <VideoCard
               key={video._id}
               video={video}
-              // deleteButton={deleteButton}
+              deleteButton={deleteButton}
+              onDelete={onDelete ? () => onDelete(video._id) : undefined}
             />
           ))}
         </div>
