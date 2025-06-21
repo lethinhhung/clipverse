@@ -12,18 +12,20 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "./ui/sidebar";
-import { LayoutDashboard, Flame, Heart } from "lucide-react";
+import { LayoutDashboard, Flame, Heart, ShieldUser } from "lucide-react";
 import { SidebarChannelList } from "./channel-list";
 import { NavUser } from "./nav-user";
 import { Separator } from "./ui/separator";
 import Image from "next/image";
 import { ReportDialog } from "./report-dialog";
+import { is } from "date-fns/locale";
 
 const dummyData = {
   user: {
     name: "Nhat Di",
     email: "duyy@example.com",
     avatar: "./imgs/dummy-avatars/mouse.png",
+    isAdmin: false,
   },
   navMain: [
     {
@@ -40,6 +42,12 @@ const dummyData = {
       name: "Favorites",
       url: "/favorites",
       icon: Heart,
+    },
+
+    {
+      name: "Administrator",
+      url: "/admin",
+      icon: ShieldUser,
     },
   ],
   channels: [
@@ -106,16 +114,21 @@ export default function AppSidebar({
         <SidebarGroup>
           <SidebarGroupLabel>Explore</SidebarGroupLabel>
           <SidebarMenu>
-            {dummyData.navMain.map((item) => (
-              <SidebarMenuItem key={item.name}>
-                <SidebarMenuButton asChild>
-                  <a href={item.url} className="flex items-center gap-4">
-                    <item.icon />
-                    <span>{item.name}</span>
-                  </a>
-                </SidebarMenuButton>
-              </SidebarMenuItem>
-            ))}
+            {dummyData.navMain
+              .filter(
+                (item) =>
+                  item.name !== "Administrator" || dummyData.user.isAdmin
+              )
+              .map((item) => (
+                <SidebarMenuItem key={item.name}>
+                  <SidebarMenuButton asChild>
+                    <a href={item.url} className="flex items-center gap-4">
+                      <item.icon />
+                      <span>{item.name}</span>
+                    </a>
+                  </SidebarMenuButton>
+                </SidebarMenuItem>
+              ))}
           </SidebarMenu>
         </SidebarGroup>
         <Separator className="!w-3/4 mx-auto custom-separator" />

@@ -7,25 +7,46 @@ import {
 } from "@/components/ui/hover-card";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { CalendarDays } from "lucide-react";
+import { CalendarDays, Trash, X } from "lucide-react";
 import Image from "next/image";
 import { Video } from "@/interfaces/video";
 
+interface VideoCardProps {
+  video: Video;
+  deleteButton?: boolean;
+  onDelete?: () => void; // In case you wanna pass a handler
+}
+
 export default function VideoCard({
   video,
-}: // deleteButton,
-{
-  video: Video;
-  // deleteButton: boolean;
-}) {
+  deleteButton = false,
+  onDelete,
+}: VideoCardProps) {
   return (
     <HoverCard>
       <HoverCardTrigger asChild>
         <Card
           className="
-           w-full max-w-120 mx-auto p-0 rounded-md bg-background flex flex-col gap-0 relative cursor-pointer break-inside-avoid-column
+            w-full max-w-120 mx-auto p-0 rounded-md bg-background flex flex-col gap-0 relative cursor-pointer break-inside-avoid-column
           "
         >
+          {deleteButton && (
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                onDelete?.();
+              }}
+              className="
+                absolute top-2 left-2 z-20 flex items-center justify-center
+                w-8 h-8 rounded-full bg-white hover:bg-red-100
+                shadow-md transition-all border-2 
+              "
+              title="Delete video"
+            >
+              <Trash className="w-5 h-5 text-red-500" />
+            </button>
+          )}
+
           <Badge className="absolute top-5 right-[-2] text-xs px-2.5 py-1.5 rounded-sm rounded-e-xs shadow-md z-10">
             {video.time} mins
           </Badge>
