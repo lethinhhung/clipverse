@@ -1,4 +1,4 @@
-import { User } from "./user";
+import { Profile, User } from "./user";
 import { Tag } from "./tag";
 
 export interface Video {
@@ -11,6 +11,7 @@ export interface Video {
   tags: Tag[];
   userId: User;
   isPrivate: boolean;
+  userId: Profile | User;
   progress: VideoProgress;
   createdAt: Date;
   updatedAt: Date;

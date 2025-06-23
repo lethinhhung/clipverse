@@ -12,21 +12,21 @@ import { Separator } from "./ui/separator";
 
 export default function ChannelCard({ channel }: { channel: User }) {
   return (
-    <Card className="lg:max-w-200 bg-background custom-border py-4 mt-4">
+    <Card className="lg:max-w-200 bg-background custom-border md:py-4 mt-4">
       <div className="flex flex-col lg:flex-row items-center justify-around">
-        <CardContent className="flex flex-col justify-center gap-4 max-w-65">
-          <CardTitle className="text-2xl">{channel.profile.name}</CardTitle>
-          <div className="flex flex-col gap-4 ml-4">
-            <CardDescription className="line-clamp-3">
+        <CardContent className="flex flex-col justify-center gap-4 md:max-w-65">
+          <CardTitle className="text-2xl text-center md:text-left">{channel.profile.name}</CardTitle>
+          <div className="flex flex-col gap-4 md:ml-4">
+            <CardDescription className="line-clamp-3 text-center md:text-left">
               {channel.profile.bio}
             </CardDescription>
-            <Button className="w-fit">Go to Channel</Button>
+            <Button className="w-fit self-center">Go to Channel</Button>
           </div>
         </CardContent>
 
         <CardContent className="flex items-center max-w-60 p-0">
           <Separator
-            className="!h-40 custom-separator"
+            className="!h-40 custom-separator hidden md:block"
             orientation="vertical"
           />
           <Image
@@ -34,10 +34,10 @@ export default function ChannelCard({ channel }: { channel: User }) {
             alt="Channel Avatar"
             width={180}
             height={180}
-            className="rounded-lg custom-border mx-5 -mt-20"
+            className="rounded-lg custom-border mx-5 md:-mt-20 my-5 md:my-0"
           />
           <Separator
-            className="!h-40 custom-separator"
+            className="!h-40 custom-separator hidden md:block"
             orientation="vertical"
           />
         </CardContent>

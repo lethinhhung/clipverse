@@ -7,9 +7,9 @@ import { ShareModal } from "./share-modal";
 
 export function ChannelHeader({ channel }: { channel: User }) {
   return (
-    <div className="w-full flex flex-col md:flex-row gap-2 sm:gap-8">
-      <div className="flex flex-row sm:flex-1 gap-4 items-center sm:items-start">
-        <div className="h-full w-40  flex-shrink-0">
+    <div className="flex flex-col md:flex-row gap-2 sm:gap-8">
+      <div className="flex sm:flex-1 gap-4 items-center sm:items-start">
+        <div className="h-full flex-shrink-0">
           <Image
             className="rounded-md object-cover"
             alt="avatar"
@@ -31,7 +31,7 @@ export function ChannelHeader({ channel }: { channel: User }) {
             {channel.profile.name}
           </p>
 
-          <div className="flex flex-row gap-5 sm:gap-10 text-center">
+          <div className="flex gap-5 sm:gap-10 text-center">
             <div className="flex flex-col items-center">
               <p className="text-sm">Subbscriber</p>
               <p className="text-xl sm:text-2xl font-semibold">100K</p>

@@ -11,7 +11,6 @@ export default function ChannelLayout({
     _id: "1",
     username: "duyy05568",
     email: "duyy05568@gmail.com",
-    password: "",
     status: "Online",
     role: [
       {
@@ -39,8 +38,8 @@ export default function ChannelLayout({
     updatedAt: new Date(),
   };
   return (
-    <div className="flex items-center justify-center h-full w-full mt-15 mb-15 ">
-      <div className="flex flex-col h-full sm:w-[70%] w-[90%] max-w-310  gap-10 sm:gap-15">
+    <div className="flex items-center justify-center my-15 md:mx-30 mx-10">
+      <div className="flex flex-col gap-10 md:gap-15">
         <ChannelHeader channel={mockChannel} />
         {children}
       </div>

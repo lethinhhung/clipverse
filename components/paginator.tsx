@@ -13,23 +13,28 @@ interface PaginatorProps<Type> {
   items: Type[];
   itemsPerPage: number;
   renderItem: (item: Type) => ReactNode;
+  layout?: "grid" | "column";
 }
 
 export default function Paginator<Type>({
   items,
   itemsPerPage,
   renderItem,
+  layout = "grid",
 }: PaginatorProps<Type>) {
   const [currentPage, setCurrentPage] = useState(1);
-
+  const containerClass =
+    layout === "grid"
+      ? "flex flex-wrap gap-10 justify-center"
+      : "flex flex-col gap-10 items-center";
   const totalPages = Math.ceil(items.length / itemsPerPage);
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
   const currentItems = items.slice(startIndex, endIndex);
 
   return (
-    <div className="flex flex-col gap-8">
-      <div className="flex flex-col gap-10">
+    <div className="flex flex-col items-center gap-8">
+      <div className={containerClass}>
         {currentItems.map((item, index) => (
           <div key={index}>{renderItem(item)}</div>
         ))}
