@@ -9,6 +9,7 @@ export interface Video {
   fileUrl: string;
   thumbnailUrl: string;
   tags: Tag[];
+  userId: User;
   isPrivate: boolean;
   progress: VideoProgress;
   createdAt: Date;
@@ -34,5 +35,3 @@ export interface Comment {
   createdAt: Date;
   updatedAt: Date;
 }
-
-export interface SimpleVideoInfo {}

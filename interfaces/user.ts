@@ -1,4 +1,3 @@
-import { LucideIcon } from "lucide-react";
 import { Video } from "./video";
 import { Playlist } from "./playlist";
 
@@ -24,12 +23,11 @@ export interface User {
   _id: string;
   username: string;
   email: string;
-  password: string;
   status: string;
   role: [
     {
       title: string;
-      icon: LucideIcon;
+      icon: string;
     }
   ];
   profile: Profile;
@@ -37,4 +35,3 @@ export interface User {
   createdAt: Date;
   updatedAt: Date;
 }
-
