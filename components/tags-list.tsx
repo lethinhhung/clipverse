@@ -20,7 +20,11 @@ export function TagsList({
   const [seletedTags, setSelectedTags] = useState<Tag[]>([]);
   return (
     <div className={`flex flex-col gap-2 ${className}`}>
-      {title && <p>{title}</p>}
+      {title && (
+        <h4 className="scroll-m-20 text-xl font-semibold tracking-tight px-3">
+          {title}
+        </h4>
+      )}
       <div className="flex flex-wrap gap-2">
         {tags.map((tag, index) => (
           <Button

@@ -1,7 +1,9 @@
 import { DetailVideoCard } from "@/components/detail-video-card";
+import { Button } from "@/components/ui/button";
 import { Tag } from "@/interfaces/tag";
 import { User } from "@/interfaces/user";
 import { Video } from "@/interfaces/video";
+import Image from "next/image";
 
 const mockUser: User = {
   _id: "1",
@@ -17,7 +19,7 @@ const mockUser: User = {
   profile: {
     _id: "1",
     name: "Test User",
-    avatar: "https://example.com/avatar.jpg",
+    avatar: "/imgs/placeholder.svg",
     bio: "This is a test user.",
   },
   createdAt: new Date(),
@@ -114,7 +116,40 @@ export default function ResultPage() {
           <DetailVideoCard key={video._id} video={video} />
         ))}
       </div>
-      <div className="hidden xl:flex xl:col-span-1">Channel details</div>
+      <div className="hidden xl:flex xl:col-span-1 flex-col gap-4 p-4 items-center">
+        <div className="max-w-50 max-h-50 relative">
+          <Image
+            src="/imgs/placeholder.svg"
+            alt="Placeholder"
+            width={300}
+            height={300}
+            className="rounded-lg aspect-square object-cover"
+          />
+          <Button className="absolute bottom-[-6] right-[50%] translate-x-[50%]">
+            Go to channel
+          </Button>
+        </div>
+        <h4 className="scroll-m-20 text-xl font-semibold tracking-tight">
+          SCP Foundation
+        </h4>
+        <p className="text-sm line-clamp-3 text-muted-foreground">
+          The SCP Foundation is a fictional secret organization that is
+          dedicated to securing, containing, and protecting anomalous objects,
+          entities, and phenomena. It operates worldwide, employing a vast
+          network of agents and personnel to locate and contain these anomalies,
+          ensuring that they do not pose a threat to humanity.
+        </p>
+        <div className="flex gap-8">
+          <div className="flex flex-col items-center">
+            <span className="text-lg font-semibold">Subscribers</span>
+            <span className="text-2xl font-bold">8.0k</span>
+          </div>
+          <div className="flex flex-col items-center">
+            <span className="text-lg font-semibold">Videos</span>
+            <span className="text-2xl font-bold">12</span>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
