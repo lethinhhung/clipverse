@@ -5,6 +5,7 @@ import {
   Flag,
   ListPlus,
   MoreHorizontal,
+  Play,
   Share2,
   ThumbsDown,
   ThumbsUp,
@@ -33,14 +34,48 @@ import VideoCard from "@/components/video-card";
 import { ReportDialog } from "@/components/report-dialog";
 import { toast } from "sonner";
 import { Video } from "@/interfaces/video";
+import { User } from "@/interfaces/user";
+import { useState } from "react";
 
-const video: Video = {
+const mockUser: User = {
+  _id: "1",
+  username: "testuser",
+  email: "hehe@example.com",
+  status: "active",
+  role: [
+    {
+      title: "user",
+      icon: "h", // Assuming you have an icon or can use a placeholder
+    },
+  ],
+  profile: {
+    _id: "1",
+    name: "Test User",
+    avatar: "/imgs/placeholder.svg",
+    bio: "This is a test user.",
+  },
+  createdAt: new Date(),
+  updatedAt: new Date(),
+  progress: {
+    viewedVideos: [],
+    likedVideos: [],
+    dislikedVideos: [],
+    playlists: [],
+    uploadedVideos: [],
+    subscribedUsers: [],
+    subscribers: [],
+    notifications: [],
+  },
+};
+
+const mockVideo: Video = {
   _id: "1",
   title: "Sample Video Title",
   time: 10,
   description: "This is a sample video description.",
   fileUrl: "https://example.com/video.mp4",
   thumbnailUrl: "https://example.com/thumbnail.jpg",
+  userId: mockUser,
   tags: [],
   isPrivate: false,
   progress: {
@@ -58,24 +93,30 @@ const video: Video = {
 
 export default function WatchPage() {
   const { videoId } = useParams();
+  const [isPlaying, setIsPlaying] = useState(false);
   return (
     <div className="grid grid-cols-4 gap-2">
       <div className="col-span-full 2xl:col-span-3 p-2 sm:p-4">
         <div className="relative w-full">
-          {/* <Button
-            size={"icon"}
-            variant={"secondary"}
-            className="w-20 h-20 rounded-full z-10 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
-          >
-            <Play className="!w-15 !h-15" />
-          </Button>
-          <Image
-            src={"/imgs/placeholder.svg"}
-            alt="video-player"
-            width={1920}
-            height={1080}
-            className="aspect-video w-full object-cover rounded-lg"
-          /> */}
+          {!isPlaying && (
+            <>
+              <Button
+                size={"icon"}
+                variant={"secondary"}
+                className="w-20 h-20 rounded-full z-11 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+                onClick={() => setIsPlaying(!isPlaying)}
+              >
+                <Play className="!w-15 !h-15" />
+              </Button>
+              <Image
+                src={"/imgs/placeholder.svg"}
+                alt="video-player"
+                width={1920}
+                height={1080}
+                className="aspect-video w-full object-cover rounded-lg z-10 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+              />
+            </>
+          )}
           <video
             width="1920"
             height="1080"
@@ -208,7 +249,7 @@ export default function WatchPage() {
               key={index}
               className="w-full flex justify-center break-inside-avoid"
             >
-              <VideoCard video={video} />
+              <VideoCard video={mockVideo} />
             </div>
           ))}
         </div>

@@ -70,7 +70,7 @@ export default function ResultLayout({
 }) {
   return (
     <div className="w-full h-full flex flex-col gap-4">
-      <div className="lg:sticky top-15 w-full grid grid-cols-5">
+      <div className="lg:sticky top-15 w-full grid grid-cols-5 bg-background z-20">
         <div className="col-span-full xl:col-span-4 max-w-7xl w-full flex flex-col lg:flex-row gap-4 lg:gap-16 p-4 mx-auto">
           <div className="flex flex-col gap-2">
             <h4 className="scroll-m-20 text-xl font-semibold tracking-tight px-3">

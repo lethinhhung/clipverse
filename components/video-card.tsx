@@ -7,7 +7,7 @@ import {
 } from "@/components/ui/hover-card";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { CalendarDays, Trash, X } from "lucide-react";
+import { CalendarDays, Trash } from "lucide-react";
 import Image from "next/image";
 import { Video } from "@/interfaces/video";
 

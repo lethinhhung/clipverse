@@ -6,7 +6,7 @@ import { Badge } from "./ui/badge";
 
 export function DetailVideoCard({ video }: { video: Video }) {
   return (
-    <div className="w-full grid grid-cols-2 xl:grid-cols-3 gap-2 sm:gap-4 p-2 sm:p-4 hover:bg-secondary rounded-lg transition-colors">
+    <div className="w-full flex flex-col sm:grid sm:grid-cols-2 xl:grid-cols-3 gap-2 sm:gap-4 p-2 sm:p-4 hover:bg-linear-to-r hover:from-secondary hover:to-background rounded-lg transition-colors">
       <div className="relative">
         <Image
           src={video.thumbnailUrl}

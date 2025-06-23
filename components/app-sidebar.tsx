@@ -18,7 +18,6 @@ import { NavUser } from "./nav-user";
 import { Separator } from "./ui/separator";
 import Image from "next/image";
 import { ReportDialog } from "./report-dialog";
-import { is } from "date-fns/locale";
 
 const dummyData = {
   user: {
