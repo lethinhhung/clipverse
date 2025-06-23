@@ -33,6 +33,7 @@ import VideoCard from "@/components/video-card";
 import { ReportDialog } from "@/components/report-dialog";
 import { toast } from "sonner";
 import { Video } from "@/interfaces/video";
+import { Profile } from "@/interfaces/user";
 
 const video: Video = {
   _id: "1",
@@ -43,6 +44,12 @@ const video: Video = {
   thumbnailUrl: "https://example.com/thumbnail.jpg",
   tags: [],
   isPrivate: false,
+  userId: {
+    _id: "user1",
+    name: "Sample User",
+    avatar: "/imgs/placeholder.svg",
+    bio: ""
+  },
   progress: {
     views: 1000,
     comments: [],
@@ -208,7 +215,7 @@ export default function WatchPage() {
               key={index}
               className="w-full flex justify-center break-inside-avoid"
             >
-              <VideoCard video={video} />
+              <VideoCard video={video} author={video.userId as Profile} />
             </div>
           ))}
         </div>
