@@ -1,6 +1,7 @@
 "use client";
 import VideoCard from "@/components/video-card";
 import Paginator from "@/components/paginator";
+import HomeCarousel from "@/components/home-carousel";
 import { Video } from "@/interfaces/video";
 import { Profile } from "@/interfaces/user";
 
@@ -32,6 +33,11 @@ const mockVideo: Video = {
   updatedAt: new Date("2025-03-29"),
 };
 
+const mockCarousel = Array(4).fill(null).map((_, index) => ({
+  ...mockVideo,
+  _id: `${index + 1}`,
+}));
+
 const mockVideos = Array(30)
   .fill(null)
   .map((_, index) => ({
@@ -42,10 +48,12 @@ const mockVideos = Array(30)
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
+    <div className="items-center justify-start min-h-screen pb-20 gap-16 sm:px-30 font-[family-name:var(--font-geist-sans)]">
       <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
         <div className="w-full items-center">
-
+          <div className="w-full h-full">
+            <HomeCarousel videos={mockCarousel} />
+          </div>
           <h2 className="ml-8 mb-8 text-2xl font-bold">Recent Updated</h2>
           <Paginator
             items={mockVideos}
